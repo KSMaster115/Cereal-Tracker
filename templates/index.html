@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang = “en”>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- add a favico later - the small icon beside the page name in tabs and bookmarks -->
+        <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='carousel.css')}}">
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <div class="navbar-wrapper">
+            <div class="container">
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="navbar-header">
+                        <!-- data-toggle and data-target are for the Javascript functions -->
+                        <!-- Comes before h1 but appears on the right because of flexbox properties -->
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span> <!-- for screen readers -->
+                            <!-- creates the hamburger icon -->
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="navbar-brand">Cereal Tracker</span>
+                    </div>
+
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <!-- Add links and change names if necessary -->
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- CAROUSEL -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+            <!-- INDICATORS -->
+            <ol class="carousel-indicators" id="carousel_indicators">
+                <!-- Example of an indicator, to follow in JS for dynamic updating -->
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+
+            <!-- CAROUSEL OBJECTS -->
+            <div class="carousel-inner" role="listbox" id="carousel_items">
+                <!-- Example of an item, to follow in JS for dynamic updating -->
+                <div class="item active">
+                    <!-- class is a name you can use to refer to the image in this slide. alt is alternative text that appears if the image fails to load or moused over or for screen readers -->
+                    <img class="first-slide" src="{{url_for('static', filename='images/istockphoto-508473183-612x612.jpg')}}" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                        <h1>Example headline.</h1>
+                        <p>TEXT</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p> <!-- can be a product page button -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <!-- class is a name you can use to refer to the image in this slide. alt is alternative text that appears if the image fails to load or moused over or for screen readers -->
+                    <img class="second-slide" src="{{url_for('static', filename='images/cocoapebbles.jpg')}}" alt="Second slide"> <!-- data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==-->
+                    <div class="container">
+                        <div class="carousel-caption">
+                        <h1>Example headline.</h1>
+                        <p>TEXT</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p> <!-- can be a product page button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LEFT RIGHT CONTROLS -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- FEATURETTES -->
+        
+        <div class="container marketing">
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                    <p class="lead">TEST TEXT.</p>
+                </div>
+
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive center-block" src="{{url_for('static', filename='images/istockphoto-508473183-612x612.jpg')}}" alt="Generic placeholder image">
+                </div>
+            
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- FOOTER -->
+            <footer>
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p>&copy; Chester Foo Wei Shen. &middot; <a href="#">GitHub Link</a> &middot; <a href="#">LinkedIn</a></p>
+            </footer>
+
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    </body>
+</html>
+
