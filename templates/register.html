@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang = “en”>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- add a favico later - the small icon beside the page name in tabs and bookmarks -->
+        <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='carousel.css')}}">
+
+        
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <div class="navbar-wrapper">
+            <div class="container">
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="navbar-header">
+                        <!-- data-toggle and data-target are for the Javascript functions -->
+                        <!-- Comes before span but appears on the right because of flexbox properties -->
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span> <!-- for screen readers -->
+                            <!-- creates the hamburger icon -->
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="navbar-brand">Cereal Tracker</span>
+                    </div>
+
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <!-- Add links and change names if necessary -->
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#">Login</a></li>
+                            <li class="active"><a href="/register">Register</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="registration">
+            <h2>Registration</h2>
+            <form onsubmit="checkregister(); return false;">
+                <p><input type="text" placeholder="Choose a username" name="newusername" id="newusername" required autofocus></p>
+                <p><input type="password" placeholder="Choose a password" name="newpassword" id="newpassword" required></p>
+                <p><input type="submit" value="Register"></p>
+            </form>
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+        <script>
+            function checkregister()
+            {
+                let username = document.querySelector('#newusername').value;
+                let password = document.querySelector('#newpassword').value;
+
+                fetch('/registration', 
+                {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({newusername:username, newpassword:password})
+                })
+
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error('Error:', error));
+            }
+        </script>
+
+</html>

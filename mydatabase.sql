@@ -1,2 +1,2 @@
-Enter password:
+Enter password:rootpassword
 
